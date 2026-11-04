@@ -1,0 +1,107 @@
+  :root{
+    --bg:#f4f6fa; --card:#fff; --text:#1f2937; --muted:#6b7280; --border:#e5e7eb;
+    --primary:#2563eb; --primary-dark:#1d4ed8;
+    --ok:#16a34a; --warn:#f59e0b; --err:#dc2626; --bday:#a855f7; --holiday:#fee2e2;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--text)}
+  .page{max-width:1280px;margin:0 auto;padding:24px}
+  .page-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:20px}
+  .page-header h1{margin:4px 0 0;font-size:28px}
+  .back{display:inline-flex;align-items:center;gap:6px;color:var(--muted);cursor:pointer;font-size:14px;text-decoration:none}
+  .back svg{width:16px;height:16px}
+  .back:hover{color:var(--primary)}
+  button{font:inherit;cursor:pointer}
+  .btn-primary,.btn-next{background:var(--primary);color:#fff;border:0;padding:10px 18px;border-radius:8px;font-weight:600}
+  .btn-primary:hover,.btn-next:hover{background:var(--primary-dark)}
+  .btn-cancel{background:#fff;border:1px solid var(--border);padding:10px 18px;border-radius:8px}
+  .btn-cancel:hover{background:#f3f4f6}
+  .form-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+  .split-card{display:grid;grid-template-columns:minmax(320px,420px) 1fr;gap:28px}
+  @media(max-width:900px){.split-card{grid-template-columns:1fr}}
+
+  /* Calendario */
+  .cal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+  .cal-month-label{font-weight:700;font-size:18px}
+  .page-btn{min-width:32px;height:32px;border:1px solid var(--border);background:#fff;border-radius:8px;display:inline-flex;align-items:center;justify-content:center}
+  .page-btn:hover:not(:disabled){background:#f3f4f6}
+  .page-btn.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+  .page-btn:disabled{opacity:.4;cursor:default}
+  .cal-days-header,.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+  .cal-day-name{text-align:center;font-size:12px;color:var(--muted);font-weight:600;padding:4px 0}
+  .cal-cell{position:relative;aspect-ratio:1;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;cursor:pointer;border:1px solid transparent}
+  .cal-cell:hover{background:#eef2ff}
+  .cal-cell.other{color:#c0c4cc}
+  .cal-cell.weekend{background:#f9fafb;color:var(--muted)}
+  .cal-cell.holiday{background:var(--holiday);color:#b91c1c}
+  .cal-cell.approved{background:#dcfce7}
+  .cal-cell.myVacsApproved{background:#bbf7d0;font-weight:700;color:#14532d}
+  .cal-cell.today{border-color:var(--primary);font-weight:700}
+  .cal-cell.selected{background:var(--primary);color:#fff}
+  .cal-cell-dots{position:absolute;bottom:4px;display:flex;gap:3px}
+  .cal-dot{width:6px;height:6px;border-radius:50%;display:inline-block}
+  .cal-dot-aprobada{background:var(--ok)}
+  .cal-dot-pendiente{background:var(--warn)}
+  .cal-dot-rechazada{background:var(--err)}
+  .cal-dot-birthday{background:var(--bday)}
+  .legend-card{display:flex;flex-wrap:wrap;gap:14px;margin:14px 0;font-size:12px;color:var(--muted)}
+  .legend-item{display:inline-flex;align-items:center;gap:6px}
+  .legend-swatch{width:10px;height:10px;border-radius:50%;display:inline-block}
+  .legend-swatch.legend-holiday{border-radius:3px;background:var(--holiday);border:1px solid #fca5a5}
+
+  /* Panel día */
+  .vac-day-panel{border-top:1px solid var(--border);padding-top:14px}
+  .vac-day-title{font-weight:700;text-transform:capitalize;margin-bottom:8px}
+  .vac-day-empty{color:var(--muted);font-size:14px;margin:6px 0}
+  .vac-day-section{margin-bottom:14px}
+  .form-section-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:8px}
+  .holiday-box{background:var(--holiday);color:#b91c1c;padding:8px 12px;border-radius:8px;font-weight:600}
+  .birthday-box{background:#f3e8ff;color:#7e22ce;padding:8px 12px;border-radius:8px;margin-bottom:6px;font-weight:600}
+  .vac-event-row{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--border)}
+  .vac-event-row:last-child{border-bottom:0}
+  .vac-event-name{font-weight:600}
+  .vac-event-meta{font-size:13px;color:var(--muted)}
+  .vac-event-meta p{margin:2px 0 0}
+  .vac-event-comment{font-size:13px;font-style:italic;margin-top:2px}
+
+  /* Badge */
+  .badge{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:600;height:fit-content}
+  .badge-aprobada{background:#dcfce7;color:#166534}
+  .badge-pendiente{background:#fef3c7;color:#92400e}
+  .badge-rechazada{background:#fee2e2;color:#991b1b}
+
+  /* Filtros y tabla */
+  .filters-fields-row{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;margin:10px 0}
+  .form-group{display:flex;flex-direction:column;gap:4px}
+  .label-form{font-size:13px;font-weight:600}
+  .label-required{color:var(--err)}
+  .inp-form{padding:9px 10px;border:1px solid var(--border);border-radius:8px;font:inherit;background:#fff;width:100%}
+  .inp-form:focus{outline:2px solid #bfdbfe;border-color:var(--primary)}
+  textarea.inp-form{min-height:80px;resize:vertical}
+  .filters-count{font-size:13px;color:var(--muted)}
+  .filters-count span{color:var(--text);font-weight:700}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th{text-align:left;font-size:12px;text-transform:uppercase;color:var(--muted);padding:10px 8px;border-bottom:2px solid var(--border)}
+  td{padding:10px 8px;border-bottom:1px solid var(--border)}
+  .total-hours-lbl{font-weight:700}
+  .total-hours{font-weight:700;color:var(--primary)}
+  .action-btn{border:0;background:transparent;padding:6px;border-radius:6px;color:var(--muted)}
+  .action-btn svg{width:18px;height:18px}
+  .action-btn.delete:hover{background:#fee2e2;color:var(--err)}
+  .pagination{display:flex;gap:6px;justify-content:center;margin-top:14px}
+  .empty-state{text-align:center;color:var(--muted);padding:40px 0}
+
+  /* Modal */
+  .ntfy-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;z-index:50;padding:16px}
+  .ntfy-modal-overlay[hidden]{display:none}
+  .modal-card{background:#fff;border-radius:14px;padding:24px;width:100%;max-width:520px;box-shadow:0 20px 40px rgba(0,0,0,.25)}
+  .form-row.col-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .modal-card .form-group{margin-bottom:12px}
+  .form-footer{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
+  .footer-hint{font-size:12px;color:var(--muted)}
+  .footer-hint span{color:var(--err)}
+  .footer-btns{display:flex;gap:8px}
+  .alert-msg{padding:10px 14px;border-radius:8px;margin-bottom:12px;font-size:14px;font-weight:600}
+  .alert-ok{background:#dcfce7;color:#166534}
+  .alert-err{background:#fee2e2;color:#991b1b}
+  #toast{position:fixed;top:16px;right:16px;z-index:60}
