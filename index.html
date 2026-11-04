@@ -274,10 +274,12 @@ async function cargarVacaciones() {
     );
 
     console.log("Status:", response.status);
-    console.log("OK:", response.ok);
 
-    const texto = await response.text();
-    console.log("Contenido:", texto);
+    vacaciones = await response.json();
+
+    console.log("Vacaciones:", vacaciones);
+
+    renderAll();
 
   } catch (error) {
     console.error("ERROR FETCH:", error);
