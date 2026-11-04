@@ -1,0 +1,22 @@
+[
+  {
+    "PkIntIdImputacion": 1,
+    "FkIntIdEmpleado": 4,
+    "DtFechaInicio": "2026-04-07",
+    "DtFechaFin": "2026-04-11",
+    "IntDias": 5,
+    "VcComentarios": "Semana Santa",
+    "VcMotivoRechazo": "",
+    "VcEstado": "Aprobada"
+  },
+  {
+    "PkIntIdImputacion": 2,
+    "FkIntIdEmpleado": 5,
+    "DtFechaInicio": "2026-04-07",
+    "DtFechaFin": "2026-04-10",
+    "IntDias": 4,
+    "VcComentarios": "Vacaciones familia",
+    "VcMotivoRechazo": "",
+    "VcEstado": "Aprobada"
+  }
+]
